@@ -57,12 +57,19 @@ npm run e2e
 ```
 angular-interview-questions/
 ├── interfaces-start/          # TypeScript interfaces exercises
+│   ├── .gitignore
+│   ├── index.html
+│   ├── node_modules/
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public/
 │   ├── src/
 │   │   ├── counter.ts         # Counter component
 │   │   ├── main.ts            # Entry point
-│   │   └── style.css          # Styles
-│   ├── index.html
-│   ├── package.json
+│   │   ├── style.css          # Styles
+│   │   ├── typescript.svg
+│   │   └── user.ts
+│   ├── task.md                # Exercise instructions
 │   └── tsconfig.json
 ├── README.md
 └── .gitignore
