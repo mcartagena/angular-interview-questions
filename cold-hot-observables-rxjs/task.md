@@ -1,0 +1,1 @@
+What are cold and hot observables?
