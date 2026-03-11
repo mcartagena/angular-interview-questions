@@ -1,0 +1,10 @@
+<h1>Angular Interview</h1>
+
+<input type="text" [value]="value" (keyup)="changeValue($event)"/>
+{{ value }}
+
+<input [(ngModel)]="value" />
+
+<input [ngModel]="value" (ngModelChange)="modelChange($event)" />
+
+<router-outlet />
