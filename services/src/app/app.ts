@@ -10,9 +10,7 @@ import { DateService } from './date-service';
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-  dateService: DateService;
-  constructor(dateService: DateService) {
-    this.dateService = dateService;
+  constructor(private dateService: DateService) {
   }
 
   ngOnInit(): void {

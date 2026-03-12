@@ -1,0 +1,3 @@
+- you have an interface UserInterface with id, name, age
+- create a UserService and getUsers method which makes a get request to http://localhost:3004/users and returns an user stream
+- write the code to get this data in component
