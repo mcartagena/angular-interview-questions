@@ -1,0 +1,1 @@
+- What is change detection? How does onPush work and why it is important?
