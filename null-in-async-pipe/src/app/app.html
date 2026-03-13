@@ -1,0 +1,9 @@
+<h1>Angular Interview - Null in pipe async</h1>
+
+<ng-container *ngIf="currentPage$ | async as currentPage">
+  <app-todo-component [currentPage]="currentPage"></app-todo-component>
+</ng-container>
+
+<!--app-todo-component [currentPage]="currentPage$ | async"></!--app-todo-component-->
+
+<router-outlet />
