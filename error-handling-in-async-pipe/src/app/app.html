@@ -1,0 +1,12 @@
+<ng-container *ngIf="users$ | async as users">
+  <div>
+    <h1>Users</h1>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.name }} ({{ user.age }} years old)
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+<router-outlet />
