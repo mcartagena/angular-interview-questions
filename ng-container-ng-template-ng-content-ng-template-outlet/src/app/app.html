@@ -1,0 +1,27 @@
+<h1>Angular interview questions</h1>
+
+<div *ngIf="article; else loading">
+  {{ article.title }}
+</div>
+
+<ng-container *ngIf="numbers">
+  <ng-container *ngFor="let number of numbers">{{ number }}</ng-container>
+</ng-container>
+
+<app-child-component>
+  <p>This content is projected from the parent component.</p>
+</app-child-component>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="articleTemplate; context: { article: newArticle }">
+
+</ng-container>
+
+<ng-template #articleTemplate let-article="article">
+  <h2>{{ article.title }}</h2>
+</ng-template>
+
+<router-outlet />

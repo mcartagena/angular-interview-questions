@@ -1,0 +1,4 @@
+- what is ng-container?
+- what is ng-template?
+- what is ng-content?
+- what is ng-template-outlet?
