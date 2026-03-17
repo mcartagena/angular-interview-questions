@@ -1,0 +1,7 @@
+<h1>Angular Animations</h1>
+
+<button (click)="fadeInOut()">Fade in / out <button>
+<!--div @fadeIn @fadeOut *ngIf="isShown">This is a block with fade In / Out</!--div-->
+<div [@fadeInOut]="isShown ? 'open': 'closed'">This is a block with fade In / Out</div>
+
+<router-outlet />
