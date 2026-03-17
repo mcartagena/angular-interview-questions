@@ -1,4 +1,2 @@
-- how to add routing to the aplication?
-- when global routing can be bad?
-- what is router-outlet?
-- how to create router-link?
+- how to load module on demand? (lazy loading)
+- What are the benefits?
