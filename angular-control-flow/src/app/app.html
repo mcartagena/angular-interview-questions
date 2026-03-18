@@ -1,0 +1,39 @@
+<h1>Angular interview questions - control flow</h1>
+
+<h2>List of users</h2>
+
+@for (user of users(); track $index) {
+  <p>{{user.name}}</p>
+} @empty {
+  <p>Users not found</p>
+}
+
+@if (user().role === 'admin') {
+  <p>Admin Access Granted</p>
+}
+@else if (user().role === 'developer') {
+  <p>Developer Access Granted</p>
+}
+@else if (user().role === 'QA'){
+  <p>QA Access Granted</p>
+}
+@else {
+  <p>Not Access Granted</p>
+}
+
+@switch (user().role) {
+  @case ('admin') {
+    <p>Admin Access Granted</p>
+  }
+  @case ('developer') {
+    <p>Developer Access Granted</p>
+  }
+  @case ('qa') {
+    <p>QA Access Granted</p>
+  }
+  @default {
+    <p>Not Access Granted</p>
+  }
+}
+
+<router-outlet />
