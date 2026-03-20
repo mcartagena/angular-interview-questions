@@ -1,0 +1,44 @@
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+<div>Content</div>
+
+<button (click)="isVisible=true">Show</button>
+<button (click)="preFetchCondition=true">Load</button>
+<!--
+@defer {
+@defer (on idle) {
+@defer (on viewport) {
+@defer (on interaction) {
+@defer (on immediate) {
+@defer (on timer(2000)) {
+@defer (on hover; on timer(2000)) {
+@defer (when isVisible) {
+@defer (when isVisible; prefetch when preFetchCondition) {
+@defer (when isVisible; prefetch on idle) {
+-->
+@defer (on viewport) {
+  <app-child-component></app-child-component>
+}
+@loading (after 150ms; minimum 150ms){
+  <div>Loading</div>
+}
+@placeholder {
+  <div>Placeholder</div>
+}
+@error {
+  <div>
+    <p>Failed to load the component. Please check your connection.</p>
+  </div>
+}
+
+<router-outlet />
