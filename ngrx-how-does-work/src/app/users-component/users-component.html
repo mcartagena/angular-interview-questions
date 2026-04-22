@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+@if(selectIsLoading$ | async) {
+  <p>Loading...</p>
+}
+@if (selectError$ | async; as error) {
+  <p>Error loading users: {{ error }}</p>
+}
+
+<ul>
+  @for(user of selectUsers$ | async; track $index) {
+    <li>{{ user.name }}</li>
+  }
+</ul>
+
