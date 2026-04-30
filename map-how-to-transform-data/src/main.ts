@@ -1,32 +1,26 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import "./style.css";
+import typescriptLogo from "./typescript.svg";
+import viteLogo from "/vite.svg";
+import { setupCounter } from "./counter.ts";
 
-interface UserInterface {
-      id: string;
-      name: string;
-      age: number
-    };
+import { normalizeUsers } from "./transform.ts";
+import type { UserInterface } from "./transform.ts";
+import { Observable } from "rxjs";
 
-const normalizeUsers = (users$: Observable<UserInterface[]>) : Observable<string[]> => {
-  return users$.pipe(
-    map(users => users.map(user => user.name))
-  );
-};
+normalizeUsers(
+  new Observable<UserInterface[]>((subscription) => {
+    subscription.next([
+      { id: "1", name: "Alice", age: 30 },
+      { id: "2", name: "Bob", age: 25 },
+      { id: "3", name: "Charlie", age: 35 },
+    ]);
+    subscription.complete();
+  }),
+).subscribe((names) => {
+  console.log(names);
+});
 
-normalizeUsers(new Observable<UserInterface[]>(subscribe => {
-  subscribe.next([
-    { id: '1', name: 'John', age: 30 }, 
-    { id: '2', name: 'Jane', age: 25 }, 
-    { id: '3', name: 'Bob', age: 35 }])
-  subscribe.complete()
-}))
-.subscribe(names => console.log(names));
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
@@ -42,6 +36,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);

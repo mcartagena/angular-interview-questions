@@ -2,29 +2,17 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
-import { Observable, of } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import type { UserInterface } from './filter.ts'
+import { filterUsers } from './filter.ts'
+import { of } from 'rxjs';
 
-interface UserInterface {
-      id: string;
-      name: string;
-      age: number
-      isActive: boolean;
-    };
-
-const filterUsers = (users$: Observable<UserInterface[]>): Observable<UserInterface[]> => {
-  return users$.pipe(
-    filter(users => users.some(user => user.isActive))
-  );
-}
-
-let users$: Observable<UserInterface[]> = of([
-  { id: '1', name: 'John', age: 30, isActive: true }, 
-  { id: '2', name: 'Jane', age: 25, isActive: true }, 
-  { id: '3', name: 'Bob', age: 35, isActive: false }
-]);
-
-filterUsers(users$).subscribe(filteredUsers => console.log(filteredUsers));
+filterUsers(of<UserInterface[]>([
+  { id: '1', name: 'Alice', age: 30, isActive: true },
+  { id: '2', name: 'Bob', age: 25, isActive: false },
+  { id: '3', name: 'Charlie', age: 35, isActive: true },
+])).subscribe(filteredUsers => {
+  console.log('Filtered Users:', filteredUsers);
+});
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
